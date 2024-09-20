@@ -17,6 +17,7 @@ import {
 import Image from "next/image";
 import { motion} from "framer-motion";
 import Link from "next/link";
+import { Badge } from "./ui/badge";
 
 const features = [
   {
@@ -42,6 +43,7 @@ const features = [
 const pricingPlans = [
   {
     name: "Starter",
+    badge: "Best for small remote teams",
     price: "$99",
     features: [
       "Up to 20 users",
@@ -52,13 +54,13 @@ const pricingPlans = [
   },
   {
     name: "Growth",
+    badge: "Best for mid to large remote teams",
     price: "$299",
     features: [
       "Up to 100 users",
       "Advanced recognition tools",
       "Weekly pulse surveys",
       "Priority email support",
-      "Custom branding",
     ],
   },
 ];
@@ -291,7 +293,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-x-1 sm:space-x-2 md:space-x-4 flex items-center"
+              className="hidden lg:flex space-x-1 sm:space-x-2 md:space-x-4 flex items-center"
             >
               <Button
                 className="rounded-full"
@@ -340,6 +342,14 @@ export default function LandingPage() {
                 Sign Up
               </Button>
             </motion.div>
+            <div className="lg:hidden">
+            <Button
+                size="sm"
+                className="rounded-full w-[100px] bg-indigo-600 hover:bg-indigo-700 text-white"
+              >
+                Sign Up
+              </Button>
+            </div>
           </nav>
         </header>
 
@@ -383,7 +393,7 @@ export default function LandingPage() {
           {/* Remote Work Challenges section */}
           <section
             id="challenges"
-            className="py-16 sm:py-24 bg-white rounded-3xl"
+            className="py-16 sm:py-24 px-4 bg-white rounded-3xl"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center text-gray-800">
               Common Remote Work Challenges
@@ -393,6 +403,9 @@ export default function LandingPage() {
 
           {/* Features section */}
           <section id="features" className="py-16 sm:py-24">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center text-gray-800">
+              How Recognify Is Going To Solve Remote Work Issues?
+            </h2>
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -506,7 +519,7 @@ export default function LandingPage() {
             </h2>
             <RecognifyBenefits />
             <div className="text-center mt-12">
-              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white text-lg px-8 py-3 rounded-full">
+              <Button className="w-full lg:max-w-sm bg-indigo-600 hover:bg-indigo-700 text-white text-lg px-8 py-9 lg:py-4 rounded-full text-wrap">
                 Start Transforming Your Team Today
               </Button>
             </div>
@@ -599,10 +612,10 @@ export default function LandingPage() {
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.05 }}
-                  className="bg-indigo-50 rounded-2xl p-6 sm:p-8 shadow-xl transition-all duration-300 border-2 border-transparent hover:border-indigo-500"
+                  className="flex flex-col bg-indigo-50 rounded-2xl p-6 sm:p-8 shadow-xl transition-all duration-300 border-2 border-transparent hover:border-indigo-500"
                 >
-                  <h3 className="text-2xl font-bold mb-4 text-indigo-600">
-                    {plan.name}
+                  <h3 className="text-4xl font-bold mb-4 text-indigo-600 flex flex-row gap-x-1 items-center">
+                    {plan.name} <Badge className="rounded-full -mb-2">{plan.badge}</Badge>
                   </h3>
                   <p className="text-2xl sm:text-5xl text-indigo-500 font-bold mb-6">
                     {plan.price}
@@ -625,6 +638,7 @@ export default function LandingPage() {
                       </motion.li>
                     ))}
                   </ul>
+                  <div className="flex-1"></div>
                   <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white text-lg py-4 rounded-full">
                     Choose Plan
                   </Button>
@@ -728,7 +742,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="py-16 sm:py-24 bg-indigo-600 text-white text-center rounded-3xl my-16"
+            className="py-16 sm:py-24 px-4 bg-indigo-600 text-white text-center rounded-3xl my-16"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-8">
               Ready to Revitalize Your Remote Team?
@@ -742,7 +756,7 @@ export default function LandingPage() {
               <Input
                 type="email"
                 placeholder="Enter your work email"
-                className="max-w-sm bg-white text-gray-800 text-lg py-6 px-6 rounded-full"
+                className="w-full lg:max-w-sm bg-white text-gray-800 text-lg py-6 px-6 rounded-full"
               />
               <Button
                 type="submit"
