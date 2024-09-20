@@ -6,12 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import {
   ArrowRight,
   Check,
   MessageSquare,
@@ -19,10 +13,9 @@ import {
   Star,
   Users,
   TrendingUp,
-  AlertTriangle,
 } from "lucide-react";
 import Image from "next/image";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion} from "framer-motion";
 import Link from "next/link";
 
 const features = [
@@ -70,6 +63,7 @@ const pricingPlans = [
   },
 ];
 
+/*
 const companyLogos = [
   {
     name: "TechCorp",
@@ -97,6 +91,7 @@ const companyLogos = [
     quote: "Recognify is a game-changer for remote work",
   },
 ];
+*/
 
 const faqItems = [
   {
@@ -218,7 +213,7 @@ function RecognifyBenefits() {
         </CardHeader>
         <CardContent>
           <p className="text-indigo-600">
-            Recognify's peer recognition system fosters a culture of
+            Recognify&apos;s peer recognition system fosters a culture of
             appreciation, increasing team morale and job satisfaction.
           </p>
         </CardContent>
@@ -246,7 +241,7 @@ function RecognifyBenefits() {
         </CardHeader>
         <CardContent>
           <p className="text-emerald-600">
-            Recognify's analytics help managers track engagement, recognize top
+            Recognify&apos;s analytics help managers track engagement, recognize top
             performers, and make data-driven decisions.
           </p>
         </CardContent>
@@ -266,7 +261,7 @@ export default function LandingPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollTo = (id: any) => {
+  const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -468,7 +463,7 @@ export default function LandingPage() {
                     Encourage Recognition
                   </h3>
                   <p className="text-base font-normal text-gray-500">
-                    Team members can easily recognize each other's contributions
+                    Team members can easily recognize each other&apos;s contributions
                     through the platform.
                   </p>
                 </li>
@@ -492,7 +487,7 @@ export default function LandingPage() {
                     Analyze and Improve
                   </h3>
                   <p className="text-base font-normal text-gray-500">
-                    Use Recognify's analytics to track engagement, recognize top
+                    Use Recognify&apos;s analytics to track engagement, recognize top
                     performers, and make data-driven decisions to improve your
                     remote work culture.
                   </p>
